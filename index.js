@@ -33,5 +33,3 @@ axios(url)
   }) // the title's class name
   console.log(articles) // showing the output
 })
-
-console.log('Hello,world!')
