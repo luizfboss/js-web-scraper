@@ -8,20 +8,16 @@ const express = require('express')
 // End of Importing packages
 
 const app = express() // Initiating the application
-
 const url = 'https://g1.globo.com/' // URL where all the data is going to be scraped
-
 
 // Run this line before any other line of code. This is a test to check wether the application is working properly
 app.listen(PORT, () => console.log(`server running on PORT ${PORT}`))
-
 
 axios(url)
 .then(response => {
   const html = response.data // getting raw HTML (it is all going to be a mess :) )
   const $ = cheerio.load(html) // load HTML
   const articles = [] // where all titles and url's are going to be stored
-
 
   $('._evt', html).each(function(){ // '_evt' = class name of the div where the title and url is located
     const title = $(this).text() // get title 
